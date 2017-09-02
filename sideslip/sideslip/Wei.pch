@@ -1,0 +1,17 @@
+//
+//  Wei.pch
+//  cehua
+//
+//  Created by 陈威 on 2017/8/28.
+//  Copyright © 2017年 Weiersi. All rights reserved.
+//
+
+#ifndef Wei_pch
+#define Wei_pch
+#import "UIView+Weiview.h"
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kTabbarHeight 49
+#define kNavHeight 64
+
+#endif /* Wei_pch */
