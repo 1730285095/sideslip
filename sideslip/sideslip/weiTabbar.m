@@ -36,9 +36,14 @@
     NSLog(@"%@",self.subviews);
     for (UIView *button in self.subviews) {
         if (![button isKindOfClass:[UIControl class]]||button == self.publishButton)continue; {
+            if (index>=2) {
+                NSLog(@"陈威");
+                [button removeFromSuperview];
+            }else{
             CGFloat buttonX = buttonW*((index>=1)?(index+1):index);
             button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
-            index++;
+                index++;
+            }
         }
     }
     NSLog(@"%@",self.subviews);

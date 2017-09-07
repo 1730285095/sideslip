@@ -39,14 +39,15 @@
     UITabBarItem *item = [UITabBarItem appearance];
     [item setTitleTextAttributes:dict forState:UIControlStateNormal];
     [item setTitleTextAttributes:dict1 forState:UIControlStateSelected];
-    [self setupChildV:[[HaveResourceController alloc]init] title:@"有资源" image:@"Main-menu-bar_my" selectedimage:@"Main-menu-bar_My_Selected"];
-    
-    [self setupChildV:[[RequestResourceController alloc]init] title:@"求资源" image:@"Main-menu-bar_comprehensive" selectedimage:@"Main-menu-bar_comprehensive_Selected"];
+    [self setupChildV:[HaveResourceController description] title:@"有资源" image:@"Main-menu-bar_my" selectedimage:@"Main-menu-bar_My_Selected"];
+    [self setupChildV:[RequestResourceController description] title:@"求资源" image:@"Main-menu-bar_comprehensive" selectedimage:@"Main-menu-bar_comprehensive_Selected"];
+    [self setupChildV:nil title:@"陈威" image:@"Main-menu-bar_comprehensive" selectedimage:@"Main-menu-bar_comprehensive_Selected"];
     [self setValue:[[weiTabbar alloc]init] forKeyPath:@"tabBar"];
     NSLog(@"%@",self.tabBar);
 }
--(void)setupChildV:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedimage:(NSString *)selectimage
+-(void)setupChildV:(NSString *)vcStr title:(NSString *)title image:(NSString *)image selectedimage:(NSString *)selectimage
 {
+    UIViewController *vc = [[NSClassFromString(vcStr) alloc]init];
     vc.tabBarItem.title = title;
     vc.tabBarItem.image = [[UIImage imageNamed:image]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectimage]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
